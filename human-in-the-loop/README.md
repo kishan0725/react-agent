@@ -120,7 +120,3 @@ The Agent Inbox will be available at `http://localhost:3000`.
 - [Agent Inbox Repository](https://github.com/langchain-ai/agent-inbox)
 - [LangGraph Human-in-the-Loop Guide](https://docs.langchain.com/oss/javascript/langgraph/human-in-the-loop)
 - [LangChain AWS Integration](https://docs.langchain.com/oss/javascript/integrations/chat/bedrock_converse)
-
-## License
-
-ISC License - See LICENSE file for details.
