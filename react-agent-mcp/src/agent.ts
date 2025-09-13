@@ -6,23 +6,19 @@ import { input } from "@inquirer/prompts";
 
 import dotenv from "dotenv";
 import { AIMessage } from "@langchain/core/messages";
+import { MultiServerMCPClient } from "@langchain/mcp-adapters";
 
 dotenv.config();
 
-// This is a simple weather tool implementation that returns mock weather data for San Francisco and other locations. Replace this with your actual weather API
-const getWeather = tool((input) => {
-  if (["sf", "san francisco"].includes(input.location.toLowerCase())) {
-    return "It's 60 degrees and foggy.";
-  } else {
-    return "It's 90 degrees and sunny.";
-  }
-}, {
-  name: "get_weather",
-  description: "Call to get the current weather.",
-  schema: z.object({
-    location: z.string().describe("Location to get the weather for."),
-  })
-})
+const client = new MultiServerMCPClient({
+    weather: {
+        transport: "sse",  // Server-Sent Events for streaming
+        // Ensure you start your weather server on port 8080
+        url: "http://localhost:8080/sse",
+    },
+});
+
+const tools = await client.getTools();
 
 const model = new ChatBedrockConverse({
   model: "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
@@ -33,7 +29,7 @@ const model = new ChatBedrockConverse({
 
 const agent = createReactAgent({
     llm: model,
-    tools: [getWeather],
+    tools,
     prompt: "You are a helpful weather assistant."
 });
 
