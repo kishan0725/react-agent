@@ -1,6 +1,6 @@
-# LangGraph Interrupt POC - Travel Booking Agent
+# LangGraph Interrupt with Human-In-The-Loop
 
-A proof-of-concept demonstrating human-in-the-loop functionality with LangGraph, featuring a travel booking agent that can interrupt execution for human review and approval. This project integrates with [Agent Inbox](https://github.com/langchain-ai/agent-inbox) to provide a web-based UI for handling interrupts.
+This example showcases an implementation of human-in-the-loop functionality with LangGraph, featuring a travel booking agent that can interrupt execution for human review and approval. This project integrates with [Agent Inbox](https://github.com/langchain-ai/agent-inbox) to provide a web-based UI for handling interrupts.
 
 ## Prerequisites
 

@@ -12,6 +12,7 @@ dotenv.config();
 
 const checkpointer = new MemorySaver();
 
+// This is a placeholder implementation for hotel booking. Replace this with your actual hotel booking API integration or business logic.
 const bookHotel = tool(
   async ({ hotelName }) => {
     return `Successfully booked a stay at ${hotelName}.`;
@@ -25,12 +26,13 @@ const bookHotel = tool(
   }
 );
 
+// This is a placeholder implementation for flight ticket booking.  Replace this with your actual flight booking API integration or business logic.
 const bookFlightTicket = tool(
   async ({ cityName, flightNumber }) => {
     return `Successfully booked ticket at ${cityName} with flight number ${flightNumber}.`;
   },
   {
-    name: "bookFlightTicket",
+    name: "bookFlightTicket", 
     description: "Book a flight ticket",
     schema: z.object({
       cityName: z.string(),
